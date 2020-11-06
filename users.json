@@ -1,0 +1,36 @@
+[
+    {
+        "id":1,
+        "name": "Naim Panotolan",
+        "email": "naimpanotolan@gmail.com",
+        "assigned": [
+                "developer", "documents", "hardware"
+        ]
+    },
+    {
+        "id":2,
+        "name": "Bryan Asis",
+        "email": "Asis@gmail.com",
+        "assigned": [
+            "developer", "documents", "hardware"
+    ]
+
+    },
+    {
+        "id":3,
+        "name": "Gerry Soquia",
+        "email": "Soquia@gmail.com",
+        "assigned": [
+            "developer", "documents", "leader"
+    ]
+    },
+    {
+        "id":4,
+        "name": "John Cris Panopio",
+        "email": "Panopio@gmail.com",
+        "assigned": [
+            "designer", "hardware"
+    ]
+    }
+
+]

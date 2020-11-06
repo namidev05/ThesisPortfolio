@@ -1,0 +1,731 @@
+$colors: (
+    primary: #005DFF,
+    hover: lighten(#005DFF, 40%),
+    primary-light: lighten(#005DFF, 40%),
+    primary-dark: darken(#005DFF, 40%),
+    accent: #FFF6BB
+  
+);
+$padding: 15px;
+$border: 15px; 
+
+@function color($color-name){
+    @return map-get($colors, $color-name)
+};
+
+$desktop: 840px;
+
+@mixin desktop{
+    @media (min-width: #{$desktop}){
+        @content;
+    }
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    
+    .container {
+            z-index: -1;
+        }
+        #bg {
+            clip-path: polygon(100% 0, 100% 82%, 45% 100%, 0 100%, 0 0);
+            background-color: color(primary);
+            z-index: -1;
+    
+            @include desktop{
+                // clip-path: polygon(0 0, 80% 0, 60% 100%, 0% 100%);
+              
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                z-index: 1000;
+            }
+    }
+    header a{
+        color: #fff;
+        text-decoration: none;
+        padding: $padding;
+        display: block;
+        text-transform: uppercase;
+
+        @include desktop{
+           width: 80%;
+           margin: 0 auto;
+        }
+    }
+    main{
+    
+        @include desktop{
+            display: grid;
+            grid-template-columns: 50% auto;
+            width: 90%;
+            margin: 0 auto;
+            grid-template-areas: 
+            "primary card";
+            z-index: 1000;
+        }
+        section#card{
+            background: #fff;
+            padding: 20px;
+            margin: 1rem auto 0 auto;
+            border-radius: $border;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 80%;
+         
+           
+            @include desktop{
+                grid-area: card;
+                height: fit-content;
+                align-self: center;
+                margin: 1em;
+                width: 60%;
+                padding: 3em;
+                margin-top: -3em;
+            }
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+    
+    
+            li{
+                margin-bottom: 10px;
+                align-items: center;
+                justify-content: center;
+    
+                span{
+                    position: absolute;
+                    content: ' ';
+                    width: 30px;
+                    height: 30px;
+                    background-color: color(primary-light);
+                    border-radius: 50%;
+                    margin-right: 10px;
+                    
+                }
+    
+                strong{
+                    display: inline-block;
+                    margin-left: max(40px);
+                    margin-top: 10px;
+                    z-index: 1000;
+
+                }
+            }
+        }
+    }
+    section#primary{
+        color: #fff;
+        padding-top: $padding;
+        padding-bottom: 8em;
+        text-align: center;
+        
+        @include desktop{
+            grid-area: primary;
+            text-align: left;
+            margin: 2em 0 0 4em;
+            width: 80%;
+            
+        }
+    
+        h1{
+            font-size: 2.5em;
+            margin-top: 5px;
+            text-transform: uppercase;
+            margin-bottom: 0;
+
+            @include desktop{
+              
+                line-height: 1;
+                font-size: 2.2em;
+                letter-spacing: 1px;
+            }
+        }
+        p{
+            font-size: 1.4em;
+            margin-bottom: 0;
+
+        }
+        a{
+            color: color(primary-dark);
+            border-radius: $border;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-color: color(accent);
+            display: block;
+            text-align: center;
+          
+            margin: 30px 50px 0 50px;
+            padding: $padding;
+
+            @include desktop{
+                display: inline-block;
+                padding: $padding $padding * 4; 
+                margin: 20px auto 0 auto;
+            }
+          
+        }
+        a:hover{
+            transition: 0.5s;
+            background-color: color(hover);
+        }
+    }
+        .second{
+            
+            @include desktop{
+                text-align: center;
+            }
+            .about{
+                width: 90%;
+                margin: 0 auto;
+
+            .about-title{
+                font-size: 1.5rem;
+                font-weight: 700;
+                padding: 2rem 0 .5rem 0;
+                margin-top: 0;
+            }
+            
+            #paragraph1{
+                font-size: 1.2rem;
+                font-weight: 500;
+                line-height: 1.2;
+                padding-bottom: 1em;
+            }
+            }
+        }
+
+        .objective{
+            
+            .objective-wrapper-design{
+                width: 100%;
+                background: linear-gradient(to left, #9c27b0, #8ecdff);
+                margin: 0 auto;
+             
+                @include desktop{
+                    background: linear-gradient(to left, #9c27b0, #8ecdff);
+                    width: 80%;
+                    height: 10em;
+                    margin: 0 auto;
+                    z-index: -1;
+                    padding-top: 5em;
+                }
+                
+                .objective-wrapper{
+                    width: 90%;
+                    margin: 0 auto;
+                   
+                    
+                    
+                @include desktop{
+                    
+                    text-align: center;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                    background-color: #fff;
+                    margin: 0 auto;
+                    color: #000;
+                    z-index: 1;
+                    
+                    
+                }
+                .objective-title{
+                    
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    padding: 1.5rem 0 .5rem 0;
+                    margin-top: 0;
+                }
+
+                .objective-paragraph{
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    line-height: 1.2;
+                }
+
+                .objective-paragraph-meaning{
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    line-height: 1.2;
+
+                    @include desktop{
+                        padding: 0 1em 1em 1em;
+                    }
+                }
+
+                }
+            }
+        }
+
+        .specificProblem{
+            width: 100%;
+
+            @include desktop{
+                padding-top: 10em;
+                width: 100%;
+                
+            }
+            .specificProblem-wrapper{
+                width: 90%;
+                margin: 0 auto;
+                @include desktop{
+                  width: 40%;
+                  margin: 0 auto;
+                  margin-left: 45%;
+                    
+                }
+            #specificProblem-title{
+                font-size: 1.5rem;
+                font-weight: 700;
+                padding: 1.5rem 0 .5rem 0;
+                margin-top: 0;
+            }
+
+            ul{
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+              
+                 li{
+                margin-bottom: 20px;
+                align-items: center;
+                justify-content: center;
+    
+                span{
+                    position: absolute;
+                    content: ' ';
+                    width: 30px;
+                    height: 30px;
+                    background-color: color(primary-light);
+                    border-radius: 50%;
+                    margin-right: 5px;
+                   
+                    
+                }
+    
+                strong{
+                    display: inline-block;
+                    margin-left: max(40px);
+                    margin-bottom: 10px;
+                    z-index: 1000;
+                    line-height: 1.5;
+
+                }
+            }
+
+            }
+            
+        }
+    }
+    .specificbjectves{
+        width: 100%;
+
+        @include desktop{
+            
+            width: 100%;
+            
+        }
+        .specificObjectives-wrapper{
+            width: 90%;
+            margin: 0 auto;
+            @include desktop{
+              width: 40%;
+              margin: 0 auto;
+              margin-right: 45%;
+                
+            }
+        #specificObjectives-title{
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 1.5rem 0 .5rem 0;
+            margin-top: 0;
+        }
+
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+          
+             li{
+            margin-bottom: 20px;
+            align-items: center;
+            justify-content: center;
+
+            span{
+                position: absolute;
+                content: ' ';
+                width: 30px;
+                height: 30px;
+                background-color: color(primary-light);
+                border-radius: 50%;
+                margin-right: 5px;
+               
+                
+            }
+
+            strong{
+                display: inline-block;
+                margin-left: max(40px);
+                margin-bottom: 10px;
+                z-index: 1000;
+                line-height: 1.5;
+            }
+        }
+
+        }
+        
+    }
+}
+    .Generalobjective{
+                
+        .Generalobjective-wrapper-design{
+            width: 100%;
+            background: linear-gradient(to left, #9c27b0, #8ecdff);
+            margin: 0 auto;
+        
+            @include desktop{
+                background: linear-gradient(to left, #9c27b0, #8ecdff);
+                    width: 80%;
+                    height: 10em;
+                    margin: 0 auto;
+                    z-index: -1;
+                    padding-top: 5em;
+                
+            }
+            
+            .Generalobjective-wrapper{
+                width: 90%;
+                margin: 0 auto;
+                
+                
+                
+            @include desktop{
+            
+                text-align: center;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                    background-color: #fff;
+                    margin: 0 auto;
+                    color: #000;
+                    z-index: 1;
+                    
+                
+                
+            }
+            .Generalobjective-title{
+                
+                font-size: 1.5rem;
+                font-weight: 700;
+                padding: 1.5rem 0 .5rem 0;
+                margin-top: 0;
+            }
+
+            .Generalobjective-paragraph{
+                font-size: 1.2rem;
+                font-weight: 700;
+                line-height: 1.2;
+            }
+
+            .Generalobjective-paragraph-meaning{
+                font-size: 1.2rem;
+                font-weight: 500;
+                line-height: 1.2;
+
+                @include desktop{
+                    padding: 0 1em 1em 1em;
+                }
+            }
+
+            }
+        }
+    }
+    
+    .scopeAndLimitation{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        
+
+        @include desktop{
+           
+            padding-top: 6em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin: 2em;
+        }
+
+        .scopeWrap{
+            width: 100%;
+            
+            @include desktop{
+                
+                width: 30%;
+              
+                // background-color: #ff8efc;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                // border-radius: 10px;
+                margin: 30px;
+            }
+        }
+        .scope{
+            width: 90%;
+            margin: 0 auto;
+            padding: 2rem 0 .5rem 0;
+
+            .scopeTitle{
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-top: 0;
+                text-align: center;
+            }
+
+            ul{
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                
+                
+        
+                li{
+                    margin-bottom: 10px;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: 0;
+                    span{
+                        position: absolute;
+                        content: ' ';
+                        width: 30px;
+                        height: 30px;
+                        background-color: color(primary-light);
+                        border-radius: 50%;
+                        margin-right: 10px;
+                        
+                    }
+        
+                    strong{
+                        display: inline-block;
+                        margin-left: max(40px);
+                        margin-top: 10px;
+                        z-index: 1000;
+                        font-size: 1.2rem;
+                        
+                        @include desktop{
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+
+        .limitationWrap{
+            width: 100%;
+
+            @include desktop{
+                width: 30%;
+                height: 32em;
+                // background-color: #ff8efc;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                // border-radius: 10px;
+            }
+        }
+        .limitation{
+            width: 90%;
+            margin: 0 auto;
+            padding: 1.5rem 0 .5rem 0;
+
+            .limitationtitle{
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-top: 1rem;
+                text-align: center;
+            }
+
+            ul{
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+        
+        
+                li{
+                    margin-bottom: 10px;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: 0;
+                    span{
+                        position: absolute;
+                        content: ' ';
+                        width: 30px;
+                        height: 30px;
+                        background-color: color(primary-light);
+                        border-radius: 50%;
+                        margin-right: 10px;
+                        
+                    }
+        
+                    strong{
+                        display: inline-block;
+                        margin-left: max(40px);
+                        margin-top: 10px;
+                        z-index: 1000;
+                        font-size: 1.2rem;
+    
+                    }
+                }
+            }
+        }
+    }
+    .designContainer{
+        width: 100%;
+        margin: 0 auto;
+        background: #fee2e7;
+
+        @include desktop{
+            background: #fee2e7;
+         
+        }
+
+        .designContainer-wrapper{
+            width: 90%;
+            margin: 0 auto;
+
+            @include desktop{
+                width: 75%;
+                
+            }
+        .designContainer-title{
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 2rem 0 .5rem 0;
+            margin-top: 0;
+
+            @include desktop{
+                text-align: center;
+            }
+            }           
+            
+        .designContainer-cardWrapper{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            
+            
+
+            @include desktop{
+                flex-direction: row;
+                padding-bottom: 2em;
+            }
+
+            #designContainer-card{
+                width: 300px;
+                height: 320px;
+                background-color: #fff;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                margin: 1rem auto 1rem auto;
+                
+
+            }
+        }    
+    }
+           
+    }
+
+    .members{
+        width: 100%;
+        margin: 0 auto;
+        background: linear-gradient(to left, #9c27b0, #8ecdff);
+
+        @include desktop{
+            
+            background: linear-gradient(to left, #9c27b0, #8ecdff);
+           
+        }
+
+        .members-wrapper{
+            width: 90%;
+            margin: 0 auto;
+
+            @include desktop{
+                width: 75%;
+                
+            }
+        .members-title{
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 2rem 0 .5rem 0;
+            margin-top: 0;
+
+            @include desktop{
+                text-align: center;
+            }
+            }           
+            
+        .members-cardWrapper{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            padding-bottom: 1em;
+            
+
+            @include desktop{
+                flex-direction: row;
+            }
+
+            #members-card{
+                width: 300px;
+                height: 320px;
+                background-color: #fff;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                margin: 1rem auto 1rem auto;
+
+                @include desktop{
+                    width: 220px;
+                    margin: 1rem;
+
+                }
+
+            }
+        }    
+    }
+           
+    }
+    .footer{
+        width: 100%;
+        background-color: pink;
+        color: #fff;
+        
+
+        .footerWrap{
+            padding: 1rem;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+
+            @include desktop{
+                width: 50%;
+                margin: 0 auto;
+            }
+
+            .contact{
+                font-size: 1.5rem;
+                font-weight: 700;
+                padding: 1rem 0 .5rem 0;
+                margin-top: 0;
+            
+
+                .number{
+                    font-size: 1.2rem;
+                    margin-bottom: 0;
+                }
+
+                .gmail{
+                    font-size: 1.2rem;
+                    text-decoration: none;
+                    color: #fff;
+                }
+            }
+
+        }
+    }
+
+}
